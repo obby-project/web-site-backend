@@ -66,7 +66,7 @@ app.post("/api/v1/waitlist", async (req, res) => {
   res.json(created);
 });
 app.get("/", async (req, res, next) => {
-  res.status(200).send("Hello World!");
+  res.status(200).send("Hello World!!");
 });
 
 if (process.env.ENVIRONMENT === "production") {
