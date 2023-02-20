@@ -67,7 +67,7 @@ app.post("/api/v1/waitlist", async (req, res) => {
 });
 
 if (process.env.ENVIRONMENT === "production") {
-  exports.handler = serverless(app);
+  exports.handler = serverless(app, { provider: "aws" });
 } else {
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}.`);
