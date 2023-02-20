@@ -27,4 +27,3 @@ jobs:
           aws_region: ${{ secrets.AWS_REGION }}
           function_name: ${{ secrets.LAMBDA_NAME }}
           source: dist/index.js
-
