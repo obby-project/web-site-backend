@@ -19,15 +19,12 @@ jobs:
           yarn build
         env:
           CI: true
-      - name: zip
-        uses: montudor/action-zip@v0.1.0
-        with:
-          args: zip -qq -r ./bundle.zip ./
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_region: eu-central-1
+          aws_region: ${{ secrets.AWS_REGION }}
           function_name: backend-express
-          zip_file: bundle.zip
+          source: dist/index.js
+
